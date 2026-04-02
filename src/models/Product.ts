@@ -1,4 +1,4 @@
-export class Product {
+export abstract class Product {
   private sku: string;
   public name: string;
   protected price: number;

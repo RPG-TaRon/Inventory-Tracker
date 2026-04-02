@@ -1,11 +1,20 @@
-import { Product } from './Product';
+import { Product } from "./Product.js";
 
 export class DigitalProduct extends Product {
-    fileSize: number;
+  constructor(
+    sku: string,
+    name: string,
+    price: number,
+    public fileSize: number
+  ) {
+    super(sku, name, price);
+  }
 
-    constructor(sku: string, name: string, price: number, fileSize: number) {
-        super(sku, name, price);
-        this.fileSize = fileSize;
-    }
+  getPriceWithTax(): number {
+    return this.price;
+  }
 
-    override getPriceWithTax(): number {
+  get formattedFileSize(): string {
+    return `${this.fileSize} MB`;
+  }
+}
